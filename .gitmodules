@@ -4,3 +4,6 @@
 [submodule "read-build-file"]
 	path = read-build-file
 	url = git@github.com:volkovasystems/read-build-file.git
+[submodule "extract-parameter-list-from-function"]
+	path = extract-parameter-list-from-function
+	url = git@github.com:volkovasystems/extract-parameter-list-from-function.git
