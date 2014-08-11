@@ -1,0 +1,3 @@
+[submodule "parse-object-command-format"]
+	path = parse-object-command-format
+	url = git@github.com:volkovasystems/parse-object-command-format.git
