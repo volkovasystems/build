@@ -4,3 +4,6 @@
 [submodule "read-build-file"]
 	path = read-build-file
 	url = git@github.com:volkovasystems/read-build-file.git
+[submodule "attempt-module-execution"]
+	path = attempt-module-execution
+	url = git@github.com:volkovasystems/attempt-module-execution.git
