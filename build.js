@@ -42,7 +42,8 @@
 	@include:
 		{
 			"read-build-file.js@github.com/volkovasystems": "readBuildFile",
-			"parse-object-command-format.js@github.com/volkovasystems": "parseObjectCommandFormat"
+			"parse-object-command-format.js@github.com/volkovasystems": "parseObjectCommandFormat",
+			"attempt-module-execution.js@github.com/volkovasystems": "attemptModuleExecution"
 		}
 	@end-include
 */

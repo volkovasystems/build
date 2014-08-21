@@ -1,0 +1,25 @@
+/*:
+	@build-configuration:
+		{
+			"buildProcessList": [
+				"git clone https://github.com/volkovasystems/attempt-module-execution.git",
+				"cd attempt-module-execution",
+				"git checkout develop",
+				"git pull",
+				"cd ..",
+
+				"git clone https://github.com/volkovasystems/parse-object-command-format.git",
+				"cd attempt-module-execution",
+				"git checkout develop",
+				"git pull",
+				"cd ..",
+
+				"git clone https://github.com/volkovasystems/read-build-file.git",
+				"cd attempt-module-execution",
+				"git checkout develop",
+				"git pull",
+				"cd ..",		
+			]
+		}
+	@end-build-configuration
+*/
