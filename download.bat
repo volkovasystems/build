@@ -1,4 +1,5 @@
 @echo off
+
 bitsadmin /reset > nul 
 bitsadmin /create /DOWNLOAD %JOB_ID% > nul 
 bitsadmin /addFile %JOB_ID% %DOWNLOAD_URL% %DOWNLOAD_DESTINATION% > nul 
