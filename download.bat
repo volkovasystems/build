@@ -1,7 +1,7 @@
 @echo off
 
 bitsadmin /reset > nul 
-bitsadmin /create /DOWNLOAD %JOB_ID% > nul 
+bitsadmin /create /download %JOB_ID% > nul 
 bitsadmin /addFile %JOB_ID% %DOWNLOAD_URL% %DOWNLOAD_DESTINATION% > nul 
 bitsadmin /setMinRetryDelay %JOB_ID% 1 > nul 
 bitsadmin /resume %JOB_ID% > nul
@@ -33,17 +33,17 @@ if "%DOWNLOAD_STATUS%"=="TRANSIENT_ERROR" (
 	goto CHECK_DOWNLOAD
 )
 
-if not !DOWNLOAD_STATUS:TRANSFERRED!==!DOWNLOAD_STATUS! (
-	echo | set /p loading="[ok]"
-	bitsadmin /complete %JOB_ID% > nul
-	goto DOWNLOAD_COMPLETE
-)
-
 if "%DOWNLOAD_STATUS%"=="ERROR" goto DOWNLOAD_STOPPED
 if "%DOWNLOAD_STATUS%"=="CANCELLED" goto DOWNLOAD_STOPPED
 
 if "%DOWNLOAD_STATUS%"=="COMPLETE" goto DOWNLOAD_COMPLETE
 if "%DOWNLOAD_STATUS%"=="ACKNOWLEDGED" goto DOWNLOAD_COMPLETE
+
+if not !DOWNLOAD_STATUS:TRANSFERRED!==!DOWNLOAD_STATUS! (
+	echo | set /p loading="[ok]"
+	bitsadmin /complete %JOB_ID% > nul
+	goto DOWNLOAD_COMPLETE
+)
 
 :DOWNLOAD_STOPPED
 echo %DOWNLOAD_STATUS%

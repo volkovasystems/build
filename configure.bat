@@ -29,19 +29,18 @@ set COMPRESSED_7ZSD_SFX=7zsd.7z
 set COMMAND_LINE_7ZIP=7za.exe
 set SFX_7ZSD=7zsd.sfx
 
-set PROGRAM_7ZIP_PATH="C:\Program Files\7-Zip"
-set PROGRAM_7ZIP=%PROGRAM_7ZIP_PATH%\7z.exe
+set PROGRAM_7ZIP="C:\Program Files\7-Zip\7z.exe"
 
 set DOWNLOAD_URL_NODEJS_32BIT="http://nodejs.org/dist/v0.10.31/node-v0.10.31-x86.msi"
 set DOWNLOAD_URL_NODEJS_64BIT="http://nodejs.org/dist/v0.10.31/x64/node-v0.10.31-x64.msi"
 
-set DOWNLOAD_NODEJS_JOB_ID="nodejs"
+set DOWNLOAD_NODEJS_JOB_ID="nodejs-installer"
 
 set INSTALLER_NODEJS=node.msi
 
 set DOWNLOAD_URL_GIT="https://github.com/msysgit/msysgit/releases/download/Git-1.9.4-preview20140815/Git-1.9.4-preview20140815.exe"
 
-set DOWNLOAD_GIT_JOB_ID="git"
+set DOWNLOAD_GIT_JOB_ID="git-installer"
 
 set INSTALLER_GIT=git.exe
 
