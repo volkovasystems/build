@@ -9,7 +9,7 @@ if "%PLATFORM_ARCHITECTURE%"=="%BIT32%" (
 
 call install.bat
 
-if exist "%PROGRAM_7ZIP%" (
+if exist %PROGRAM_7ZIP% (
 	echo %PROGRAM_7ZIP% has been installed.
 ) else (
 	echo %PROGRAM_7ZIP% has not been installed.

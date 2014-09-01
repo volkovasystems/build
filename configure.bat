@@ -44,3 +44,8 @@ set DOWNLOAD_GIT_JOB_ID="git-installer"
 
 set INSTALLER_GIT=git.exe
 
+set DOWNLOAD_URL_GETGNUWIN32="http://downloads.sourceforge.net/project/getgnuwin32/getgnuwin32/0.6.30/GetGnuWin32-0.6.3.exe"
+
+set DOWNLOAD_GETGNUWIN32_JOB_ID="getgnuwin32-installer"
+
+set INSTALLER_GETGNUWIN32=getgnuwin32.exe
