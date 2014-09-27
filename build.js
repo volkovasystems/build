@@ -41,16 +41,21 @@
 
 	@include:
 		{
-			"read-build-file.js@github.com/volkovasystems": "readBuildFile",
-			"parse-object-command-format.js@github.com/volkovasystems": "parseObjectCommandFormat",
-			"attempt-module-execution.js@github.com/volkovasystems": "attemptModuleExecution"
+			"harvest-directory@github.com/volkovasystems": "harvestDirectory",
+			"read-build-file@github.com/volkovasystems": "readBuildFile",
+			"parse-object-command-format@github.com/volkovasystems": "parseObjectCommandFormat",
+			"attempt-module-execution@github.com/volkovasystems": "attemptModuleExecution"
 		}
 	@end-include
 */
-var build = function build( ){
+var build = function build( projectDirectory ){
+	harvestDirectory( projectDirectory,
+		function harvester( directoryPath ){
 
+		} );
 };
 
+var harvestDirectory = require( "./harvest-directory/harvest-directory.js" );
 var readBuildFile = require( "./read-build-file/read-build-file.js" );
 var parseObjectCommandFormat = require( "./parse-object-command-format/parse-object-command-format.js" );
 
