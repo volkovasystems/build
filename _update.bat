@@ -15,21 +15,56 @@ cd ..
 
 :"harvest-directory"
 cd .
-if not exist "./harvest-directory/.git" goto "attempt-module-execution"
+if not exist "./harvest-directory/.git" goto "check-file-exists"
 cd "harvest-directory"
+git checkout develop
+git pull
+cd ..
+
+:"check-file-exists"
+cd .
+if not exist "./check-file-exists/.git" goto "attempt-module-execution"
+cd "check-file-exists"
 git checkout develop
 git pull
 cd ..
 
 :"attempt-module-execution"
 cd .
-if not exist "./attempt-module-execution/.git" goto "harvest-list"
+if not exist "./attempt-module-execution/.git" goto "read-file"
 cd "attempt-module-execution"
 git checkout develop
 git pull
 cd ..
 
+:"read-file"
+cd "./read-build-file"
+if not exist "./read-file/.git" goto "check-directory-exists-4"
+cd "read-file"
+git checkout develop
+git pull
+cd ..
+
+:"check-directory-exists-4"
+cd ..
+cd "./read-build-file"
+if not exist "./check-directory-exists/.git" goto "check-file-exists-2"
+cd "check-directory-exists"
+git checkout develop
+git pull
+cd ..
+
+:"check-file-exists-2"
+cd ..
+cd "./read-build-file"
+if not exist "./check-file-exists/.git" goto "harvest-list"
+cd "check-file-exists"
+git checkout develop
+git pull
+cd ..
+
 :"harvest-list"
+cd ..
 cd "./harvest-directory"
 if not exist "./harvest-list/.git" goto "list-directory-tree"
 cd "harvest-list"
@@ -49,8 +84,17 @@ cd ..
 :"check-directory-exists"
 cd ..
 cd "./harvest-directory/list-directory-tree"
-if not exist "./check-directory-exists/.git" goto "recursively-traverse-directory"
+if not exist "./check-directory-exists/.git" goto "check-file-exists-3"
 cd "check-directory-exists"
+git checkout develop
+git pull
+cd ..
+
+:"check-file-exists-3"
+cd ../../
+cd "./read-build-file/read-file"
+if not exist "./check-file-exists/.git" goto "recursively-traverse-directory"
+cd "check-file-exists"
 git checkout develop
 git pull
 cd ..

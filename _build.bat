@@ -17,23 +17,62 @@ cd ..
 
 :"harvest-directory"
 cd .
-if exist "./harvest-directory/.git" goto "attempt-module-execution"
+if exist "./harvest-directory/.git" goto "check-file-exists"
 git clone "https://github.com/volkovasystems/harvest-directory.git"
 cd "harvest-directory"
 git checkout develop
 git pull
 cd ..
 
+:"check-file-exists"
+cd .
+if exist "./check-file-exists/.git" goto "attempt-module-execution"
+git clone "https://github.com/volkovasystems/check-file-exists.git"
+cd "check-file-exists"
+git checkout develop
+git pull
+cd ..
+
 :"attempt-module-execution"
 cd .
-if exist "./attempt-module-execution/.git" goto "harvest-list"
+if exist "./attempt-module-execution/.git" goto "read-file"
 git clone "https://github.com/volkovasystems/attempt-module-execution.git"
 cd "attempt-module-execution"
 git checkout develop
 git pull
 cd ..
 
+:"read-file"
+cd "./read-build-file"
+if exist "./read-file/.git" goto "check-directory-exists-4"
+git clone "https://github.com/volkovasystems/read-file.git"
+cd "read-file"
+git checkout develop
+git pull
+cd ..
+
+:"check-directory-exists-4"
+cd ..
+cd "./read-build-file"
+if exist "./check-directory-exists/.git" goto "check-file-exists-2"
+git clone "https://github.com/volkovasystems/check-directory-exists.git"
+cd "check-directory-exists"
+git checkout develop
+git pull
+cd ..
+
+:"check-file-exists-2"
+cd ..
+cd "./read-build-file"
+if exist "./check-file-exists/.git" goto "harvest-list"
+git clone "https://github.com/volkovasystems/check-file-exists.git"
+cd "check-file-exists"
+git checkout develop
+git pull
+cd ..
+
 :"harvest-list"
+cd ..
 cd "./harvest-directory"
 if exist "./harvest-list/.git" goto "list-directory-tree"
 git clone "https://github.com/volkovasystems/harvest-list.git"
@@ -55,9 +94,19 @@ cd ..
 :"check-directory-exists"
 cd ..
 cd "./harvest-directory/list-directory-tree"
-if exist "./check-directory-exists/.git" goto "recursively-traverse-directory"
+if exist "./check-directory-exists/.git" goto "check-file-exists-3"
 git clone "https://github.com/volkovasystems/check-directory-exists.git"
 cd "check-directory-exists"
+git checkout develop
+git pull
+cd ..
+
+:"check-file-exists-3"
+cd ../../
+cd "./read-build-file/read-file"
+if exist "./check-file-exists/.git" goto "recursively-traverse-directory"
+git clone "https://github.com/volkovasystems/check-file-exists.git"
+cd "check-file-exists"
 git checkout develop
 git pull
 cd ..

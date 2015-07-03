@@ -44,19 +44,43 @@
 			"harvest-directory@github.com/volkovasystems": "harvestDirectory",
 			"read-build-file@github.com/volkovasystems": "readBuildFile",
 			"parse-object-command-format@github.com/volkovasystems": "parseObjectCommandFormat",
-			"attempt-module-execution@github.com/volkovasystems": "attemptModuleExecution"
+			"attempt-module-execution@github.com/volkovasystems": "attemptModuleExecution",
+			"check-file-exists@github.com/volkovasystems": "checkFileExists",
+			"path@nodejs": "path",
+			"fs@nodejs": "fs"
 		}
 	@end-include
 */
 var build = function build( projectDirectory ){
-	harvestDirectory( projectDirectory,
+	var projectDirectoryList = harvestDirectory( projectDirectory,
 		function harvester( directoryPath ){
-
+			console.log( directoryPath );
+			if( checkFileExists( [ directoryPath, "build" ].join( path.sep ) ) ){
+				return directoryPath;
+			}
 		} );
+
+	console.log( JSON.stringify( projectDirectoryList, null, "\t" ) );
+
+	var projectDirectoryPath = "";
+	var buildFileData = "";
+	var projectDirectoryListLength = projectDirectoryList.length
+	for( var index = 0; index < projectDirectoryListLength; index++ ){
+		projectDirectoryPath = projectDirectoryList[ index ];
+		
+		buildFileData = readBuildFile( projectDirectoryPath, "build" );
+
+		buildFileCommandList = parseObjectCommandFormat( buildFileData );
+	}
 };
 
 var harvestDirectory = require( "./harvest-directory/harvest-directory.js" );
 var readBuildFile = require( "./read-build-file/read-build-file.js" );
 var parseObjectCommandFormat = require( "./parse-object-command-format/parse-object-command-format.js" );
+var checkFileExists = require( "./check-file-exists/check-file-exists.js" );
+var fs = require( "fs" );
+var path = require( "path" );
 
 module.exports = build;
+
+build( "." );
